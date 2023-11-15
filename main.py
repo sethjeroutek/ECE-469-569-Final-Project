@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+import csv
 from scipy.io import wavfile
 
 # Plots the carrier, information, and modulated signals.
@@ -23,19 +24,23 @@ def graph_signals(signals: list, t: np.array, titles=["Carrier Signal", "Informa
 # Get the modulating signal from input.
 def get_modulating_signal():
     # Check the number of command-line arguments
-    if len(sys.argv) < 2:
-        print("Usage: python script.py <argument>")
+    if len(sys.argv) < 3:
+        print("Usage: python main.py <audio_file> <graph [0,1]>")
+        print("                      Filepath of          0 to print output to .csv file.")
+        print("                      audio file.            1 to graph output.")
+        sys.exit(1)
     else:
         argument = sys.argv[1]
+        graph = sys.argv[2]
     
     sampling_rate, data = wavfile.read(argument)
     if len(data.shape) == 2:
             data = data.mean(axis=1)
 
-    return sampling_rate, data
+    return sampling_rate, data, graph
 
 # Read in signal from command line.
-sampling_rate, data = get_modulating_signal()
+sampling_rate, data, graph = get_modulating_signal()
 duration = data.shape[0] / sampling_rate
 t = np.linspace(0, duration, int(sampling_rate * duration), endpoint=False)
 
@@ -47,4 +52,11 @@ information = data / max(data)
 k = 50
 am_modulated_signal = (1 + (k * information)) * carrier
 
-graph_signals([carrier, am_modulated_signal, information], t)
+if graph == 1: 
+    graph_signals([carrier, am_modulated_signal, information], t)
+else:
+    # Organize waveform into time and voltage columns.
+    data = np.column_stack((t, am_modulated_signal))
+
+    # Save the data to a CSV file.
+    np.savetxt('output.csv', data, delimiter=',', comments='')
