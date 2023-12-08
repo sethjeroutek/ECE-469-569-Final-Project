@@ -12,14 +12,16 @@ Members: Seth Jeroutek, Matthew Bowlby, Arthur Jur
 'conv.m' must be run inside of MATLAB.
 
 #### src folder
-am.py - Usage: python am.py <audio_file> <output_file> <carrier frequency> <graph [0,1]>
+This holds our code for our attempt at amplitude modulation. We ultimately did not use this.
 
-    This holds our code for our attempt at amplitude modulation. We ultimately did not use this.
+    am.py - Usage: python am.py <audio_file> <output_file> <carrier frequency> <graph [0,1]>
 
-tts.py - Usage: python tts.py <text> <filename>  <rate [0-200]> <volume [0.0-1.0]> <voice [0,1]>
+This is the code used to generate our text-to-speech (TTS) lines.
 
-    This is the code used to generate our text-to-speech (TTS) lines.
+    tts.py - Usage: python tts.py <text> <filename>  <rate [0-200]> <volume [0.0-1.0]> <voice [0,1]>
 
-hpf.py - Usage: python hpf.py
+This serves as a high-pass filter, changing small values in the waveform presented in a CSV file to 0 to clean up the waveform.
 
-    This serves as a high-pass filter, changing small values in the waveform presented in a CSV file to 0 to clean up the waveform.
+    hpf.py - Usage: python hpf.py
+
+    
