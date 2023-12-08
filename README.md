@@ -11,7 +11,7 @@ Members: Seth Jeroutek, Matthew Bowlby, Arthur Jur
 #### MATLAB folder
 'conv.m' must be run inside of MATLAB. This converts our sound files into csv files. Sound files that are stereo are converted from stereo to mono prior to conversion based on the input.
 
-    Usage: conv.m("<input>, <output>", <tomono [0,1]>)
+    Usage: conv.m("<input (audio)>", "<output (csv)>", <tomono [0,1]>)
 
 #### src folder
 
