@@ -24,9 +24,9 @@ def graph_signals(signals: list, t: np.array, titles=["Carrier Signal", "Informa
 # Get command-line arguments.
 def get_arguments():
     if len(sys.argv) < 4:
-        print("Usage: python main.py <audio_file> <output_file> <carrier frequency> <graph [0,1]>")
-        print("                      Filepath of   'graph' must                             0 to print output to .csv file.")
-        print("                      audio file.   be 1.                                      1 to graph output.")
+        print("Usage: python am.py <audio_file> <output_file> <carrier frequency> <graph [0,1]>")
+        print("                     Filepath of  'graph' must                             0 to print output to .csv file.")
+        print("                     audio file.  be 1.                                      1 to graph output.")
         sys.exit(1)
     else:
         argument = sys.argv[1]
