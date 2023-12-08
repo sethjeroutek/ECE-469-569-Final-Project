@@ -1,4 +1,15 @@
 import csv
+import sys
+
+def get_arguments():
+    if len(sys.argv) < 3:
+        print("Usage: python hpf.py <input_file> <output_file>")
+        sys.exit(1)
+    else:
+        input_file = sys.argv[1]
+        output_file = sys.argv[2]
+
+        return input_file, output_file
 
 def convert_small_values_to_zero(input_file, output_file, threshold):
     with open(input_file, 'r') as infile:
@@ -17,8 +28,7 @@ def convert_small_values_to_zero(input_file, output_file, threshold):
                 writer.writerow(modified_row)
 
 if __name__ == "__main__":
-    input_file_path = 'alexa_spoken_4.csv' 
-    output_file_path = 'alexa_spoken_5.csv' 
+    input_file_path, output_file_path = get_arguments()
     threshold_value = 0.0001
 
     convert_small_values_to_zero(input_file_path, output_file_path, threshold_value)

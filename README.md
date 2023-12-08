@@ -28,6 +28,6 @@ This is the code used to generate our text-to-speech (TTS) lines.
 ##### hpf.py
 This serves as a high-pass filter, changing small values in the waveform presented in a CSV file to 0 to clean up the waveform.
 
-    Usage: python hpf.py
+    Usage: python hpf.py <input_file> <output_file>
 
     
