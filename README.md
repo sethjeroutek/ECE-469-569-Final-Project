@@ -11,6 +11,8 @@ Members: Seth Jeroutek, Matthew Bowlby, Arthur Jur
 #### MATLAB folder
 'conv.m' must be run inside of MATLAB.
 
+    Usage: conv.m("<input>, <output>", <tomono [0,1]>)
+
 #### src folder
 
 ##### am.py
